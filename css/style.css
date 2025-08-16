@@ -9189,7 +9189,7 @@ a.text-dark:hover, a.text-dark:focus {
     height: 30px;
     top: calc(50% - 15px);
     left: calc(50% - 15px);
-    background: #FFFFFF;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     border: 2px solid #c98d7b;
     transform: rotate(45deg);
     z-index: 1;

@@ -28,7 +28,7 @@
     
     <style>
         :root {
-            --color-primary: #a9baae;
+            --color-primary: #9caf88;/*#a9baae;*/
             --color-secondary: #e6d0b1;
             --color-tertiary: #deb297;
             --color-quaternary: #c98d7b;
@@ -141,12 +141,12 @@
         
         /* Estilos para los versículos bíblicos - estilo moderno */        
         .bible-verse {            
-            background-color: rgba(230, 208, 177, 0.08);            
+            background-color: rgba(230, 208, 177, 0.12);            
             padding: 2.5rem 2rem;            
-            border: 1px solid rgba(230, 208, 177, 0.2);            
+            border: 1px solid rgba(230, 208, 177, 0.25);            
             border-radius: 0.75rem;            
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.03),                         
-            0 4px 6px -2px rgba(0, 0, 0, 0.01);            
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08),                         
+            0 6px 8px -2px rgba(0, 0, 0, 0.04);            
             margin: 2.5rem 0;            
             position: relative;            
             overflow: hidden;            
@@ -154,10 +154,10 @@
         }                
         
         .bible-verse:hover {            
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05),                         
-            0 10px 10px -5px rgba(0, 0, 0, 0.02);            
-            transform: translateY(-2px);            
-            border-color: rgba(230, 208, 177, 0.3);        
+            box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.12),                         
+            0 12px 15px -5px rgba(0, 0, 0, 0.06);            
+            transform: translateY(-3px);            
+            border-color: rgba(230, 208, 177, 0.4);        
         }  
 
         .bible-verse::before {           
@@ -168,14 +168,13 @@
             font-family: var(--font-script);            
             font-size: 5rem;            
             color: var(--color-tertiary);            
-            opacity: 0.2;            
+            opacity: 0.25;            
             transform: rotate(-5deg);            
             transition: opacity 0.4s ease;        
         }             
 
         .bible-verse:hover::before {            
-            opacity: 0.25;
-                
+            opacity: 0.35;        
         }                
                 
         .bible-verse::after {           
@@ -184,13 +183,15 @@
             bottom: -45px;            
             right: 20px;            
             font-family: var(--font-script);            
-            font-size: 5rem;            color: var(--color-tertiary);            
-            opacity: 0.2;            transform: rotate(5deg);            
+            font-size: 5rem;            
+            color: var(--color-tertiary);            
+            opacity: 0.25;            
+            transform: rotate(5deg);            
             transition: opacity 0.4s ease;        
         }   
 
         .bible-verse:hover::after {            
-            opacity: 0.25;        
+            opacity: 0.35;        
         }   
 
         .verse-text {            
@@ -418,144 +419,419 @@
             }
         }
         
-        /* Estilos para las cajas de regalos */
-        .gift-box {
-            background-color: #fff;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(222, 178, 151, 0.15);
-            transition: all 0.4s ease;
-            height: 100%;
+        /* Estilos para el contenedor moderno de regalos */
+        .modern-gift-container {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 3rem 2.5rem;
+            box-shadow: 
+                0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(148, 163, 184, 0.1);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
         
-        .gift-box::before {
+        .modern-gift-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .modern-gift-container::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--color-quaternary), var(--color-tertiary));
-            opacity: 0.7;
+            background: var(--color-primary);
+            border-radius: 1.5rem 1.5rem 0 0;
         }
         
-        .gift-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        .gift-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
         }
         
-        .gift-icon {
+        .gift-main-icon {
+            margin-bottom: 2rem;
+        }
+        
+        .gift-main-icon i {
+            font-size: 3.5rem;
+            color: var(--color-primary);
+            opacity: 0.8;
+        }
+        
+        .gift-title {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .gift-message {
+            font-family: var(--font-script);
+            font-size: 2.5rem;
+            color: var(--color-primary);
             margin-bottom: 1.5rem;
-            transition: all 0.4s ease;
-            color: var(--color-quaternary); /* Añadido color para los íconos */
+            font-weight: 400;
         }
         
-        .gift-box:hover .gift-icon {
-            transform: scale(1.1);
+        .gift-subtitle {
+            font-size: 1.125rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .gift-description {
-            color: var(--color-quinary);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+
+        
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
         }
         
-        .gift-details {
-            background-color: rgba(230, 208, 177, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid rgba(230, 208, 177, 0.2);
-            transition: all 0.3s ease;
+        .floating-symbol {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.08;
+            animation: float 6s ease-in-out infinite;
         }
         
-        .gift-box:hover .gift-details {
-            background-color: rgba(230, 208, 177, 0.15);
-        }
-        
-        .gift-details p {
-            color: var(--color-quinary);
-            font-size: 0.95rem;
-        }
-        
-        .gift-details strong {
+        .floating-symbol.dollar {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
             color: var(--color-primary);
         }
         
+        .floating-symbol.euro {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+            color: var(--color-secondary);
+        }
+        
+        .floating-symbol.heart {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+            color: var(--color-tertiary);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Responsive para móviles */
         @media (max-width: 768px) {
-            .gift-box {
-                padding: 2rem;
+            .modern-gift-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .gift-title {
+                font-size: 1.5rem;
+            }
+            
+            .gift-message {
+                font-size: 2rem;
+            }
+            
+            .gift-subtitle {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gift-title {
+                font-size: 1.25rem;
+            }
+            
+            .gift-message {
+                font-size: 1.75rem;
             }
         }
 
-        /* Estilos para la sección de información útil - estilo moderno */
+        /* Fondo general con gradiente sutil estilo Tailwind */
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* Estilos para la sección de información útil - estilo Tailwind/Material */
+        #info-util {
+            background: transparent;
+            position: relative;
+        }
+
         .info-card {
-            background-color: #fff;
-            border-radius: 0.75rem;
+            background-color: #ffffff;
+            border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            box-shadow: 
+                0 1px 3px 0 rgba(0, 0, 0, 0.1),
+                0 1px 2px 0 rgba(0, 0, 0, 0.06);
             height: 100%;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(169, 186, 174, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            position: relative;
+            backdrop-filter: blur(8px);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-4px);
+            box-shadow: 
+                0 10px 25px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-card:hover::before {
+            opacity: 1;
         }
 
         .info-card-header {
-            background: var(--color-primary);
-            color: white;
-            padding: 1.25rem 1.5rem;
+            background: #ffffff;
+            color: #374151;
+            padding: 1.75rem 2rem 1.25rem;
             display: flex;
             align-items: center;
             gap: 1rem;
             position: relative;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        .info-card-header::after {
+        .info-card-header::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: var(--color-quaternary);
-           /*opacity: 0.7;*/
+            height: 4px;
+            background: var(--color-primary);
+            border-radius: 1rem 1rem 0 0;
         }
 
         .info-card-header i {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            color: var(--color-primary);
+            background: rgba(156, 175, 136, 0.1);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .info-card-header h5 {
             margin: 0;
             font-weight: 600;
-            font-size: 1.25rem;
-            letter-spacing: 0.01em;
+            font-size: 1.125rem;
+            letter-spacing: -0.025em;
+            color: #1f2937;
         }
 
         .info-card-body {
-            padding: 1.75rem;
+            padding: 2rem;
+            position: relative;
         }
 
         .info-description {
-            color: var(--color-quinary);
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
             font-size: 1rem;
+            font-weight: 400;
         }
 
         .info-details {
-            background-color: rgba(169, 186, 174, 0.06);
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 1.75rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            margin-top: 1rem;
+            position: relative;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .info-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(156, 175, 136, 0.3), transparent);
+        }
+
+        /* Estilos para colores no permitidos */
+        .forbidden-colors {
+            margin-top: 1.5rem;
+        }
+
+        .forbidden-colors h6 {
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .forbidden-colors h6 i {
+            color: #ef4444;
+        }
+
+        .color-circles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1.25rem;
+            align-items: start;
+            justify-items: center;
+        }
+
+        .color-circle {
+            position: relative;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .color-circle:hover {
+            transform: scale(1.15);
+            box-shadow: 
+                0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05),
+                0 0 0 2px rgba(239, 68, 68, 0.3);
+        }
+
+        .color-circle::after {
+            content: '✗';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .color-circle:hover::after {
+            opacity: 1;
+        }
+
+        .color-white {
+            background-color: #ffffff;
+            border-color: #e5e5e5;
+        }
+
+        .color-sage {
+            background-color: #9CAF88;
+        }
+
+        .color-beige {
+            background-color: #F5F5DC;
+        }
+
+        .color-nude {
+            background-color: #E3C4A8;
+        }
+
+        .color-light-gray {
+            background-color: #D3D3D3;
+        }
+
+        .color-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 0.75rem;
+            line-height: 1.2;
+            height: 2rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .color-circle:hover + .color-label,
+        .d-flex:hover .color-label {
+            color: #374151;
+            text-shadow: 0.5px 0 0 currentColor;
+        }
+
+        /* Responsive mejoras para móviles */
+        @media (max-width: 768px) {
+            .info-card-header {
+                padding: 1.5rem 1.5rem 1rem;
+            }
+            
+            .info-card-header i {
+                width: 2.25rem;
+                height: 2.25rem;
+                font-size: 1.125rem;
+            }
+            
+            .info-card-body {
             padding: 1.5rem;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(169, 186, 174, 0.08);
-            margin-top: 0.5rem;
+            }
+            
+            .info-details {
+                padding: 1.25rem;
+            }
+            
+            .color-circles {
+                grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+                gap: 1rem;
+            }
+            
+            .color-circle {
+                width: 46px;
+                height: 46px;
+            }
         }
 
         .info-section {
@@ -677,6 +953,7 @@
             height: 100%;
             transition: all 0.3s ease;
             border: 1px solid rgba(169, 186, 174, 0.1);
+            position: relative;
         }
 
         .corte-card:hover {
@@ -770,24 +1047,110 @@
         }
 
         @media (max-width: 767px) {
+            .portfolio-container {
+                margin: 0 -10px;
+                padding: 0 15px;
+            }
+            
             .portfolio-item {
                 width: calc(50% - 20px);
-                margin: 0 10px 20px;
+                margin: 0 10px 25px;
             }
             
             .corte-image {
-                height: 240px;
+                height: 250px;
+            }
+            
+            .corte-content {
+                padding: 15px;
+            }
+            
+            .corte-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            .corte-role {
+                font-size: 0.8rem;
             }
         }
 
         @media (max-width: 576px) {
             .portfolio-container {
                 margin: 0;
+                padding: 0 10px;
             }
             
             .portfolio-item {
                 width: 100%;
-                margin: 0 0 25px;
+                margin: 0 0 30px;
+            }
+            
+            .corte-image {
+                height: 300px;
+            }
+            
+            .corte-content {
+                padding: 20px 15px;
+            }
+            
+            .corte-content h4 {
+                font-size: 1.2rem;
+                margin-top: 12px;
+            }
+            
+            .corte-role {
+                font-size: 0.82rem;
+                margin-bottom: 12px;
+            }
+            
+            .corte-content h6 {
+                padding: 6px 18px;
+                font-size: 0.82rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #corte-nupcial .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            .section-title h1 {
+                font-size: 2.2rem;
+                line-height: 1.3;
+            }
+            
+            .section-title h6 {
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+            }
+            
+            .corte-card {
+                border-radius: 10px;
+            }
+            
+            .portfolio-item {
+                margin-bottom: 25px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .portfolio-container {
+                padding: 0 5px;
+            }
+            
+            .corte-content h4 {
+                font-size: 1.1rem;
+                margin-top: 10px;
+            }
+            
+            .corte-role {
+                font-size: 0.78rem;
+            }
+            
+            .corte-content h6 {
+                padding: 5px 15px;
+                font-size: 0.8rem;
             }
             
             .corte-image {
@@ -1704,8 +2067,8 @@
                     <p class="mb-4 pb-2">Queridos familiares y amigos, con inmensa alegría los invitamos a ser parte de uno de los días más importantes de nuestras vidas. Hemos decidido unir nuestros caminos bajo la bendición de Dios y nuestros padres. Queremos compartir este momento con ustedes, su presencia será un regalo invaluable para nosotros.</p>
                     
                     <div class="bible-verse">
-                        <p class="verse-text">"El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor. El amor no se deleita en la maldad, sino que se regocija con la verdad. Todo lo disculpa, todo lo cree, todo lo espera, todo lo soporta."</p>
-                        <span class="verse-reference">1 Corintios 13:4-7</span>
+                        <p class="verse-text">El amor es paciente, es bondadoso. El amor no es envidioso ni presumido ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor. El amor no se deleita en la maldad, sino que se regocija con la verdad. Todo lo disculpa, todo lo cree, todo lo espera, todo lo soporta.</p>
+                        <span class="verse-reference">1 Corintios 13:4-7 NVI</span>
                     </div>
                     
                     <h3 class="mt-5 mb-3">Falta:</h3>
@@ -1743,14 +2106,14 @@
                 <i class="far fa-heart text-dark"></i>
             </div>
             <div class="container timeline position-relative p-0">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-6 text-center text-md-right mb-4">
                         <img class="img-fluid rounded shadow" src="img/story-1.webp" style="max-width: 100%; height: auto;">
                     </div>
                     <div class="col-md-6 text-center text-md-left mb-4">
                         <img class="img-fluid rounded shadow" src="img/story-2.webp" style="max-width: 100%; height: auto;">
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="col-md-6 text-center text-md-right mb-4">
                         <img class="img-fluid rounded shadow" src="img/story-3.webp" style="max-width: 100%; height: auto;">
@@ -1789,7 +2152,42 @@
             <div class="row">
                 <div class="col-md-8 mx-auto">
                     <div class="text-center text-md-center mb-4 mb-md-0">
-                        <img class="img-fluid mb-4" src="img/event-1.webp" alt="Ceremonia religiosa" style="max-width: 40%; height: auto;">
+                        <img class="img-fluid mb-4 ceremony-image" src="img/event-1.webp" style="max-width: 40%; height: auto;">
+                        <style>
+                            .ceremony-image {
+                                border-radius: 0.75rem;
+                                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                                transition: transform 0.3s ease;
+                            }
+                            
+                            .ceremony-image:hover {
+                                transform: scale(1.02);
+                            }
+                            
+                            @media (max-width: 992px) {
+                                .ceremony-image {
+                                    max-width: 60% !important;
+                                }
+                            }
+                            
+                            @media (max-width: 768px) {
+                                .ceremony-image {
+                                    max-width: 70% !important;
+                                }
+                            }
+                            
+                            @media (max-width: 576px) {
+                                .ceremony-image {
+                                    max-width: 85% !important;
+                                }
+                            }
+                            
+                            @media (max-width: 480px) {
+                                .ceremony-image {
+                                    max-width: 95% !important;
+                                }
+                            }
+                        </style>
                         <h4 class="mb-3">Ceremonia Religiosa</h4>
                         <p class="mb-2"><strong>Fecha:</strong> 15 de Noviembre de 2025</p>
                         <p class="mb-2"><strong>Hora:</strong> 4:00 PM</p>
@@ -1807,10 +2205,10 @@
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="text-center mt-3">
-                        <a href="https://maps.app.goo.gl/ws3UyiSDKfySmad77" target="_blank" class="btn btn-primary">
+                        <a href="https://maps.app.goo.gl/ws3UyiSDKfySmad77" target="_blank" class="btn btn-primary mb-2 mb-md-0 me-md-2">
                             <i class="fas fa-map-marker-alt mr-2"></i> Obtener Direcciones
                         </a>
-                        <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTk5NDc2Njk3NTYwMzM2?story_media_id=3377420244560503631_38078958006&igsh=MTZhcDM0NXgweXpqZA==" target="_blank" class="btn btn-primary-green ml-2">
+                        <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTk5NDc2Njk3NTYwMzM2?story_media_id=3377420244560503631_38078958006&igsh=MTZhcDM0NXgweXpqZA==" target="_blank" class="btn btn-primary-green">
                             <i class="fab fa-instagram mr-2"></i> Ver Ubicación
                         </a>
                     </div>
@@ -1844,20 +2242,20 @@
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="bible-verse">
-                        <p class="verse-text">"Y si alguno prevaleciere contra uno, dos le resistirán; y cordón de tres dobleces no se rompe pronto."</p>
-                        <span class="verse-reference">Eclesiastés 4:12</span>
+                        <p class="verse-text">Uno solo puede ser vencido, pero dos pueden resistir. ¡La cuerda de tres hilos no se rompe fácilmente!</p>
+                        <span class="verse-reference">Eclesiastés 4:12 NVI</span>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="bible-verse">
-                        <p class="verse-text">"Y ante todo, tened entre vosotros ferviente amor; porque el amor cubrirá multitud de pecados."</p>
-                        <span class="verse-reference">1 Pedro 4:8</span>
+                        <p class="verse-text">Sobre todo, ámense los unos a los otros profundamente, porque el amor cubre muchísimos pecados.</p>
+                        <span class="verse-reference">1 Pedro 4:8 NVI</span>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4 mx-auto">
                     <div class="bible-verse">
-                        <p class="verse-text">"Por tanto, lo que Dios juntó, no lo separe el hombre."</p>
-                        <span class="verse-reference">Marcos 10:9</span>
+                        <p class="verse-text">Por tanto, lo que Dios ha unido, que no lo separe el hombre.</p>
+                        <span class="verse-reference">Marcos 10:9 NVI</span>
                     </div>
                 </div>
             </div>
@@ -2004,56 +2402,31 @@
     <div class="container-fluid py-5" id="regalos">
         <div class="container py-5">
             <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Mesa de Regalos</h6>
-                <h1 class="font-secondary display-4">Un Detalle Especial</h1>
+                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Regalos</h6>
+                <h1 class="font-secondary display-4">Un Gesto de Amor</h1>
                 <i class="far fa-heart text-dark"></i>
             </div>
             
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <p class="mb-5">El regalo más valioso para nosotros será contar con tu presencia en este día tan especial. Sin embargo, si deseas hacernos un obsequio, aquí te dejamos algunas opciones que nos ayudarán a comenzar nuestra vida juntos.</p>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="gift-box">
-                        <div class="gift-icon">
-                            <i class="fas fa-plane-departure fa-3x text-primary mb-4"></i>
+                <div class="col-lg-10 col-xl-8">
+                    <div class="modern-gift-container">
+                        <div class="gift-content">
+                            <div class="gift-main-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <h3 class="gift-title">Si deseas regalarnos algo especial</h3>
+                            <p class="gift-message">En $ lo sabremos apreciar</p>
+                            <p class="gift-subtitle">Tu presencia es nuestro regalo más valioso, pero si deseas contribuir a nuestro nuevo comienzo, cualquier detalle en efectivo será muy apreciado.</p>
+                            
+
                         </div>
-                        <h4 class="mb-3">Luna de Miel</h4>
-                        <p class="gift-description">Tu contribución nos ayudará a disfrutar de una luna de miel inolvidable donde podamos celebrar el comienzo de nuestra vida matrimonial.</p>
-                        <p class="mb-4">Si deseas contribuir, puedes realizar una transferencia a:</p>
-                        <div class="gift-details">
-                            <p class="mb-1"><strong>Banco:</strong> Banco Nacional</p>
-                            <p class="mb-1"><strong>Titular:</strong> Gustavo Márquez</p>
-                            <p class="mb-1"><strong>Cuenta:</strong> XXXX-XXXX-XXXX-XXXX</p>
-                            <p class="mb-0"><strong>Referencia:</strong> Luna de miel</p>
+                        
+                        <div class="decorative-elements">
+                            <div class="floating-symbol dollar">$</div>
+                            <div class="floating-symbol euro">€</div>
+                            <div class="floating-symbol heart">♥</div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="col-md-6 mb-4">
-                    <div class="gift-box">
-                        <div class="gift-icon">
-                            <i class="fas fa-home fa-3x text-primary mb-4"></i>
-                        </div>
-                        <h4 class="mb-3">Nuestro Nuevo Hogar</h4>
-                        <p class="gift-description">Estamos comenzando juntos y cualquier aporte nos ayudará a establecer nuestro hogar. Preferimos efectivo en dólares para poder invertir en lo que más necesitemos.</p>
-                        <p class="mb-4">Puedes entregarnos tu detalle el día de la boda o realizar una transferencia a:</p>
-                        <div class="gift-details">
-                            <p class="mb-1"><strong>Banco:</strong> Banco Internacional</p>
-                            <p class="mb-1"><strong>Titular:</strong> Leidys Contreras</p>
-                            <p class="mb-1"><strong>Cuenta:</strong> XXXX-XXXX-XXXX-XXXX</p>
-                            <p class="mb-0"><strong>Referencia:</strong> Nuevo hogar</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row justify-content-center mt-3">
-                <div class="col-lg-8 text-center">
-                    <p class="text-muted">Recuerda que lo más importante para nosotros es contar con tu presencia y cariño en este día tan especial. ¡Gracias por ser parte de nuestra historia!</p>
                 </div>
             </div>
         </div>
@@ -2077,56 +2450,49 @@
                             <h5>Código de Vestimenta</h5>
                         </div>
                         <div class="info-card-body">
-                            <p class="info-description">Para nuestra ceremonia religiosa y recepción, hemos escogido un código de vestimenta <strong>Semi-Formal</strong>.</p>
+                            <p class="info-description">Para nuestra ceremonia, hemos escogido un código de vestimenta <strong>Formal</strong>.</p>
                             <div class="info-details">
-                                <p class="mb-2"><strong>Para caballeros:</strong> Traje formal o pantalón de vestir con camisa y corbata. Colores sobrios como azul marino, gris o negro.</p>
-                                <p class="mb-0"><strong>Para damas:</strong> Vestido cocktail o conjunto elegante. Evitar por favor vestidos blancos/marfil (reservados para la novia) y colores demasiado llamativos.</p>
+                                <p class="mb-3">Por favor viste de manera elegante y formal para esta ocasión especial. Elige colores sobrios y elegantes que complementen la celebración.</p>
+                                
+                                <div class="forbidden-colors">
+                                    <h6><i class="fas fa-ban me-2"></i> Colores no permitidos:</h6>
+                                    <div class="color-circles">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class="color-circle color-white" data-color="Blanco"></div>
+                                            <div class="color-label">Blanco</div>
+                            </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class="color-circle color-sage" data-color="Verde Salvia"></div>
+                                            <div class="color-label">Verde Salvia</div>
+                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class="color-circle color-beige" data-color="Beige"></div>
+                                            <div class="color-label">Beige</div>
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class="color-circle color-nude" data-color="Color Nude"></div>
+                                            <div class="color-label">Color Nude</div>
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class="color-circle color-light-gray" data-color="Gris Claro"></div>
+                                            <div class="color-label">Gris Claro</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-6">
+                <div class="col-lg-6 mb-4">
                     <div class="info-card">
                         <div class="info-card-header">
-                            <i class="fas fa-info-circle"></i>
-                            <h5>Información Adicional</h5>
+                            <i class="fas fa-users"></i>
+                            <h5>Evento para Adultos</h5>
                         </div>
                         <div class="info-card-body">
-                            <div class="info-section">
-                                <div class="info-icon">
-                                    <i class="fas fa-parking"></i>
-                                </div>
-                                <div class="info-content">
-                                    <h6>Estacionamiento</h6>
-                                    <p>Habrá estacionamiento disponible tanto en la iglesia como en el salón de eventos. Se contará con servicio de valet parking.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="info-section">
-                                <div class="info-icon">
-                                    <i class="fas fa-hotel"></i>
-                                </div>
-                                <div class="info-content">
-                                    <h6>Hospedaje</h6>
-                                    <p>Para invitados que vienen de fuera, recomendamos los siguientes hoteles cercanos al lugar del evento:</p>
-                                    <ul class="info-list">
-                                        <li>Hotel Paraíso - a 5 minutos del salón</li>
-                                        <li>Grand Hotel - a 10 minutos del salón</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="info-section">
-                                <div class="info-icon">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div class="info-content">
-                                    <h6>Contacto para dudas</h6>
-                                    <p>Para cualquier consulta adicional, puedes contactar a:</p>
-                                    <p class="mb-1"><strong>María (Hermana de la novia):</strong> +58 412-8783627</p>
-                                    <p class="mb-0"><strong>Carlos (Hermano del novio):</strong> (123) 456-7891</p>
-                                </div>
+                            <p class="info-description">Con el fin de crear un ambiente más íntimo y elegante para nuestra celebración, hemos decidido que nuestro evento sea <strong>exclusivamente para adultos</strong>.</p>
+                            <div class="info-details">
+                                <p class="mb-0">Agradecemos de antemano su comprensión y esperamos que disfruten de una tarde especial sin la responsabilidad de cuidar a los pequeños. ¡Gracias por su apoyo!</p>
                             </div>
                         </div>
                     </div>
@@ -2141,14 +2507,14 @@
         <div class="container pt-5 pb-3">
             <div class="section-title position-relative text-center">
                 <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Corte Nupcial</h6>
-                <h1 class="font-secondary display-4">Padrinos y Damas de Honor</h1>
+                <h1 class="font-secondary display-4">Damas de Honor</h1>
                 <i class="far fa-heart text-dark"></i>
             </div>
             <div class="portfolio-container">
                 <div class="portfolio-item">
                     <div class="corte-card">
                         <div class="corte-image">
-                            <img src="img/bridesmaid-1.jpg" alt="Dama de honor">
+                            <img src="img/bridesmaid-8.webp" alt="Dama de honor">
                         </div>
                         <div class="corte-content">
                             <h4>Yuliangelys Marquez</h4>
@@ -2221,7 +2587,7 @@
                 <div class="portfolio-item">
                     <div class="corte-card">
                         <div class="corte-image">
-                            <img src="img/bridesmaid-1.jpg" alt="Dama de honor">
+                            <img src="img/bridesmaid-1.webp" alt="Dama de honor">
                         </div>
                         <div class="corte-content">
                             <h4>María Sosa</h4>
